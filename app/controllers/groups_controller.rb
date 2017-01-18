@@ -9,9 +9,12 @@ class GroupsController < ApplicationController
 
   def create
     @group = Group.new(group_params)
-    @group.save
+    if @group.save
     redirect_to groups_path
     flash[:notice] = "create"
+    else
+      render :new
+    end
   end
 
   def show
