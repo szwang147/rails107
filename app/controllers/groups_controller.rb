@@ -17,9 +17,19 @@ class GroupsController < ApplicationController
   def show
     @group = Group.find(params[:id])
   end
-  
+
   def edit
     @group = Group.find(params[:id])
+  end
+
+  def update
+    @group = Group.find(params[:id])
+    if @group.update(group_params)
+      redirect_to groups_path
+      flash[:notice] = "update"
+    else
+      render :edit
+    end
   end
 
 
