@@ -1,0 +1,15 @@
+<div class="col-md-4 col-md-offset-4">
+  <h2> new group</h2>
+  <hr>
+  <%= form_for @group do |f| %>
+  title
+  <br>
+  <%= f.text_field :title %>
+  <br>
+  description
+  <br>
+  <%= f.text_area :description %>
+  <br>
+  <%= f.submit "submit", disable_with: "submitting" %>
+  <% end %>
+</div>
