@@ -18,7 +18,7 @@
         <td><%= post.group.title %></td>
         <td><%= post.updated_at %></td>
         <td><%= link_to("edit", edit_group_post_path(post.group, post),class:"btn btn-default") %></td>
-        <td><%= link_to("delete", group_post_path(post.group, post), method: :delete, class:"btn btn-default") %></td>
+        <td><%= link_to("delete", group_post_path(post.group, post), method: :delete, data:{confirm:"are you sure to delete"}, class:"btn btn-default") %></td>
       </tr>
       <% end %>
     </tbody>
