@@ -45,7 +45,28 @@ class GroupsController < ApplicationController
       flash[:notice] = "delete"
   end
 
+  def join
+    @group = Group.find(paams[:id])
 
+    if !current_user.is_member_of?(@group)
+      current_user.join!(@group)
+      flash[:notice] = "Successfully joined"
+    else
+      flash[:notice] = "you have be team member already"
+    end
+    redirect_to group_path(@group)
+  end
+
+  def quit
+    @group = Group.find(params[:id])
+      if current_user.is_member_of?(@group)
+        current_user.quit!(@group)
+        flash[:notice] = "you have been quited the group"
+      else
+        flash[:notice] = "you are not team member how to quit the team"
+      end
+      redirect_to group_path(@group)
+  end
 
 private
   def find_group_and_check_permission
