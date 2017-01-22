@@ -1,0 +1,28 @@
+<div class="col-md-12">
+  <h2 class="text-center">the posts which i have been joined</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>content</th>
+        <th>group name</th>
+        <th>last update</th>
+        <th colspan="2"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @posts.each do |post| %>
+      <tr>
+        <td> #</td>
+        <td><%= post.content %></td>
+        <td><%= post.group.title %></td>
+        <td><%= post.updated_at %></td>
+        <td><%= link_to("edit", edit_group_post_path(post.group, post),class:"btn btn-default") %></td>
+        <td><%= link_to("delete", group_post_path(post.group, post), method: :delete, data:{confirm:"are you sure to delete"}, class:"btn btn-default") %></td>
+      </tr>
+      <% end %>
+    </tbody>
+
+  </table>
+
+</div>

@@ -1,0 +1,18 @@
+<div class="col-md-12">
+  <div class="group">
+    <%= link_to("new group", new_group_path, class:"btn btn-primary pull-right") %>
+  </div>
+  <table class="table table-hover">
+      <thead>
+        <tr>
+          <td>#</td>
+          <td>title</td>
+          <td>description</td>
+          <td>creator</td>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render partial: "group_item", collection: @groups, as: :group %>
+      </tbody>
+  </table>
+</div>
